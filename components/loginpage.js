@@ -1,23 +1,55 @@
-import React, {useState} from 'react';  
+import React, {useEffect, useState} from 'react';  
 import {StyleSheet, Text, View,SafeAreaView,StatusBar,ScrollView,TextInput,Image,props,Button} from 'react-native';  
 import { NavigationContainer } from '@react-navigation/native';
 //import welcome from './components/welcome';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Flatbutton from './loginbutton';
+import { auth } from '../firebase';
+import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 //rimport mainscreen from './mainpage';
 
 
+
+
+
 export default function loginScreen(props) {
-    const [textInputName, setTextInputName] = useState('');
+    const [employeeId, setEmployeeId] = useState('');
+    const [password, setPassword] = useState('');
+``
+    useEffect(() => {
+      const unsubscribe  = onAuthStateChanged(auth, (user) => {
+        console.log('USER', user);
+        if (user) {
+          c
+          props.navigation.navigate('mainscreen');
+        }
+
+      });
+      return () => unsubscribe();
+    }, []);
+    
+    const handleLogin = () => {
+      console.log('dedwwewedwe');
+      signInWithEmailAndPassword(auth, employeeId, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        props.navigation.navigate('mainscreen');
+        console.log({user});
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        // ..
+      });
+    }
+
     const NavigateTomainscreen = () =>{
 
-      if (!textInputName.trim()) {
-        alert('Please Fill up all the values.');
-        return;
-      }
-      //Checked Successfully
-      //Do whatever you want
-      props.navigation.navigate('mainscreen');
+      handleLogin();
+      // props.navigation.navigate('mainscreen');
     };
 
 
@@ -34,12 +66,12 @@ export default function loginScreen(props) {
         <View style={styles.view3}>
         <TextInput style={styles.input1} placeholder="Enter Employee Id" autoCapitalize='none' autoCorrect={false}  
         onChangeText={
-            (value) => setTextInputName(value)
+            (value) => setEmployeeId(value)
           }/>
         <TextInput style={styles.input1} placeholder="Password" 
         autoCapitalize='none' autoCorrect={false} secureTextEntry={true}
         onChangeText={
-            (value) => setTextInputName(value)
+            (value) => setPassword(value)
           }
         />
         
