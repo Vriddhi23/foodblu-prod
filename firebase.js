@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
+// import * as firebase from "firebase";
 import { initializeApp } from "firebase/app";
-import * as firebase from 'firebase';
-import { exp } from "react-native-reanimated";
+import {getAuth} from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,14 +14,20 @@ const firebaseConfig = {
   messagingSenderId: "855875874032",
   appId: "1:855875874032:web:7b24b5d71e54705ebe6635"
 };
-
 // Initialize Firebase
-let app;
-if(firebase,app.length === 0) {
+// let app;
+// if (firebase.apps.length === 0) {
+//   app = firebase.initializeApp(firebaseConfig);
+// } else {
+//   app = firebase.app()
+// }
 
-    app =  initializeApp(firebaseConfig);
-} else  {
-    app = firebase.app();
-}
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
 
 export { auth };
+
+
+
+
