@@ -1,12 +1,26 @@
-import React from 'react';  
+import React, {useState} from 'react';  
 import {StyleSheet, Text, View,SafeAreaView,StatusBar,ScrollView,TextInput,Image,props,Button} from 'react-native';  
 import { NavigationContainer } from '@react-navigation/native';
 //import welcome from './components/welcome';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Flatbutton from './loginbutton';
+//rimport mainscreen from './mainpage';
 
 
-export default function loginScreen() {
+export default function loginScreen(props) {
+    const [textInputName, setTextInputName] = useState('');
+    const NavigateTomainscreen = () =>{
+
+      if (!textInputName.trim()) {
+        alert('Please Fill up all the values.');
+        return;
+      }
+      //Checked Successfully
+      //Do whatever you want
+      props.navigation.navigate('mainscreen');
+    };
+
+
     return (
       <SafeAreaView>
         <ScrollView>
@@ -18,9 +32,15 @@ export default function loginScreen() {
         <Text style={styles.text1}>Login</Text>
         </View>
         <View style={styles.view3}>
-        <TextInput style={styles.input1} placeholder="Enter Employee Id" autoCapitalize='none' autoCorrect={false}/>
+        <TextInput style={styles.input1} placeholder="Enter Employee Id" autoCapitalize='none' autoCorrect={false}  
+        onChangeText={
+            (value) => setTextInputName(value)
+          }/>
         <TextInput style={styles.input1} placeholder="Password" 
         autoCapitalize='none' autoCorrect={false} secureTextEntry={true}
+        onChangeText={
+            (value) => setTextInputName(value)
+          }
         />
         
         <TextInput style={styles.input1} placeholder="Enter OTP"/>  
@@ -30,7 +50,7 @@ export default function loginScreen() {
         
         </View>
         <View style={styles.button2}>
-          <Flatbutton text='LOGIN' onPress={()=>alert("Welcome")}/>
+          <Flatbutton text='LOGIN' onPress={()=>NavigateTomainscreen()}/>
         </View>
         </View>
         </ScrollView>
