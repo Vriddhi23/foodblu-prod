@@ -76,7 +76,7 @@ export default function mainscreen() {
         </DataTable.Row>
         <DataTable.Row style={styles.row2}>
         <Image style={styles.images2} source={require('./gujarati.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Gujarati {'\n'} Thali</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Gujarati</Text></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>80 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row  style={styles.row2}>
