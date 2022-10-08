@@ -51,7 +51,6 @@ export default class App extends React.Component{
   };
 
 
-
 const styles = StyleSheet.create({
 Button:{
     color:'#391593',
