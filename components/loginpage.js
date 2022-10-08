@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Flatbutton from './loginbutton';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { set } from 'react-native-reanimated';
 //rimport mainscreen from './mainpage';
 
 
@@ -15,13 +16,13 @@ import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 export default function loginScreen(props) {
     const [employeeId, setEmployeeId] = useState('');
     const [password, setPassword] = useState('');
-``
+
     useEffect(() => {
       const unsubscribe  = onAuthStateChanged(auth, (user) => {
         console.log('USER', user);
         if (user) {
-          c
-          props.navigation.navigate('mainscreen');
+          // c
+          // props.navigation.navigate('mainscreen');
         }
 
       });
@@ -39,6 +40,7 @@ export default function loginScreen(props) {
         // ...
       })
       .catch((error) => {
+        alert('Please fill all the mandatory fields');
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
@@ -49,6 +51,10 @@ export default function loginScreen(props) {
     const NavigateTomainscreen = () =>{
 
       handleLogin();
+      //  if(setEmployeeId.length === 0 || setPassword.length === 0){
+      //    alert('PLease fill up all the mandatory fields');
+      //    return;
+      //  }
       // props.navigation.navigate('mainscreen');
     };
 

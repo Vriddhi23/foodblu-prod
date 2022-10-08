@@ -72,7 +72,7 @@ export default function Signupscreen(props){
               console.log('USE CREDSS');
               console.log({useCreds});
             })
-            .catch(err => alert(err.message));
+           // .catch(err => alert(err.message));
         setEmail('');
         setPassword('');
     }
@@ -91,7 +91,11 @@ export default function Signupscreen(props){
         handleSignup();
         //Checked Successfully
         //Do whatever you want
-        // props.navigation.navigate('login');
+        if(email.length === 0 || password.length === 0) {
+            alert('Please fill mandatory fields');
+               return;
+           }
+         props.navigation.navigate('login');
       };
     
   
