@@ -4,10 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { DataTable } from 'react-native-paper';
 //import  { NavigationContainer} from "@react-navigation/native"
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
-/*import HomeScreen from './screen/HomeScreen'
-import WalletScreen from './screen/WalletScreen'
-import ProfileScreen from './screen/ProfileScreen'
-import BulkScreen from './screen/BulkScreen'*/
+import App from '../addtocart';
 
 
 export default function mainscreen() {
@@ -24,22 +21,22 @@ export default function mainscreen() {
         <DataTable.Header style={styles.tableHeader}>
           <DataTable.Title styles={styles.title1}><Text style={{fontSize:20}}>Drinks</Text></DataTable.Title>
           <DataTable.Title styles={styles.title1}><Text style={{fontSize:20}}>Name</Text></DataTable.Title>
-          <DataTable.Title styles={styles.title1}><Text style={{fontSize:20}}>Price</Text></DataTable.Title>
+          <DataTable.Title styles={styles.title1}><Text style={{fontSize:20}}>Add to Cart</Text></DataTable.Title>
         </DataTable.Header>
         <DataTable.Row style={styles.row1}>
         <Image style={styles.images} source={require('./tea1.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Tea</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>10 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App style={{marginTop:-30}}/><Text style={styles.text1}>10 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row style={styles.row1}>
         <Image style={styles.images} source={require('./coffee.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Coffee</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>15 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>15 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row  style={styles.row1}>
         <Image style={{width:100,height:155,position:'absolute',marginTop:-30,marginLeft:-5}} source={require('./coca.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Coca Cola</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>40 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>40 Rs</Text></DataTable.Cell>
         </DataTable.Row>
       
       </DataTable>
@@ -52,17 +49,17 @@ export default function mainscreen() {
         <DataTable.Row style={styles.row1}>
         <Image style={styles.images1} source={require('./dabeli.jpg')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Dabeli</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>20 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>20 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row style={styles.row1}>
         <Image style={styles.images1} source={require('./vadapav.jpg')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Vadapav</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>30 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>30 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row  style={styles.row1}>
         <Image style={styles.images1} source={require('./puff.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Puff</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>20 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>20 Rs</Text></DataTable.Cell>
         </DataTable.Row>
        
       </DataTable>
@@ -75,17 +72,17 @@ export default function mainscreen() {
         <DataTable.Row style={styles.row2}>
         <Image style={styles.images2} source={require('./punjabi.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Punjabi</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>100 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>90 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row style={styles.row2}>
         <Image style={styles.images2} source={require('./gujarati.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>Gujarati {'\n'} Thali</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>80 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>80 Rs</Text></DataTable.Cell>
         </DataTable.Row>
         <DataTable.Row  style={styles.row2}>
         <Image style={styles.images2} source={require('./south.png')}/><DataTable.Cell styles={styles.cell}></DataTable.Cell>
           <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>South Indian</Text></DataTable.Cell>
-          <DataTable.Cell styles={styles.cell}><Text style={styles.text1}>80 Rs</Text></DataTable.Cell>
+          <DataTable.Cell styles={styles.cell}><App/><Text style={styles.text1}>80 Rs</Text></DataTable.Cell>
         </DataTable.Row>
        
       </DataTable>
